@@ -6,48 +6,63 @@ const introDuration = 3000;
 const introFadeDuration = 400;
 const introStartedAt = window.sigonIntroStart || performance.now();
 
-document.body.classList.add('intro-active');
+if (welcomeIntro) {
+    document.body.classList.add('intro-active');
 
-function finishWelcomeIntro() {
-    introProgressFill.style.width = '100%';
-    introProgress.setAttribute('aria-valuenow', '100');
-    introPercent.textContent = '100%';
-    welcomeIntro.classList.add('is-leaving');
-    welcomeIntro.hidden = true;
-    welcomeIntro.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('intro-active');
-    document.documentElement.classList.remove('intro-enabled');
-}
+    function finishWelcomeIntro() {
+        if (!introProgressFill || !introProgress || !introPercent || !welcomeIntro) {
+            return;
+        }
 
-function updateWelcomeIntro(now) {
-    const elapsed = Math.max(0, Math.min(now - introStartedAt, introDuration));
-    const progress = Math.round((elapsed / introDuration) * 100);
-
-    introProgressFill.style.width = `${progress}%`;
-    introProgress.setAttribute('aria-valuenow', String(progress));
-    introPercent.textContent = `${progress}%`;
-
-    if (elapsed < introDuration) {
-        requestAnimationFrame(updateWelcomeIntro);
+        introProgressFill.style.width = '100%';
+        introProgress.setAttribute('aria-valuenow', '100');
+        introPercent.textContent = '100%';
+        welcomeIntro.classList.add('is-leaving');
+        welcomeIntro.hidden = true;
+        welcomeIntro.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('intro-active');
+        document.documentElement.classList.remove('intro-enabled');
     }
+
+    function updateWelcomeIntro(now) {
+        if (!introProgressFill || !introProgress || !introPercent) {
+            return;
+        }
+
+        const elapsed = Math.max(0, Math.min(now - introStartedAt, introDuration));
+        const progress = Math.round((elapsed / introDuration) * 100);
+
+        introProgressFill.style.width = `${progress}%`;
+        introProgress.setAttribute('aria-valuenow', String(progress));
+        introPercent.textContent = `${progress}%`;
+
+        if (elapsed < introDuration) {
+            requestAnimationFrame(updateWelcomeIntro);
+        }
+    }
+
+    const timeUntilFade = Math.max(
+        0,
+        introDuration - introFadeDuration - (performance.now() - introStartedAt)
+    );
+    const timeUntilFinish = Math.max(
+        0,
+        introDuration - (performance.now() - introStartedAt)
+    );
+
+    window.setTimeout(() => {
+        if (welcomeIntro) {
+            welcomeIntro.classList.add('is-leaving');
+        }
+    }, timeUntilFade);
+    window.setTimeout(finishWelcomeIntro, timeUntilFinish);
+    requestAnimationFrame(updateWelcomeIntro);
 }
-
-const timeUntilFade = Math.max(
-    0,
-    introDuration - introFadeDuration - (performance.now() - introStartedAt)
-);
-const timeUntilFinish = Math.max(
-    0,
-    introDuration - (performance.now() - introStartedAt)
-);
-
-window.setTimeout(() => welcomeIntro.classList.add('is-leaving'), timeUntilFade);
-window.setTimeout(finishWelcomeIntro, timeUntilFinish);
-requestAnimationFrame(updateWelcomeIntro);
 
 const menuBtn = document.getElementById('menuBtn');
-    const navMenu = document.getElementById('navMenu');
+const navMenu = document.getElementById('navMenu');
 
+if (menuBtn && navMenu) {
     menuBtn.addEventListener('click', () => {
         const isOpen = navMenu.classList.toggle('open');
         menuBtn.setAttribute('aria-expanded', String(isOpen));
@@ -61,15 +76,33 @@ const menuBtn = document.getElementById('menuBtn');
             menuBtn.textContent = '☰';
         });
     });
+}
 
-    document.querySelectorAll('[data-service]').forEach(link => {
+const serviceLinks = document.querySelectorAll('[data-service]');
+if (serviceLinks.length) {
+    serviceLinks.forEach(link => {
         link.addEventListener('click', () => {
-            document.getElementById('serviceChoice').value =
-                link.dataset.service;
+            const serviceChoice = document.getElementById('serviceChoice');
+            if (serviceChoice) {
+                serviceChoice.value = link.dataset.service;
+            }
         });
     });
+}
 
-    document.getElementById('contactForm').addEventListener('submit', event => {
+const contactForm = document.getElementById('contactForm');
+const serviceChoice = document.getElementById('serviceChoice');
+
+if (serviceChoice) {
+    const requestedService = new URLSearchParams(window.location.search).get('service');
+    const matchingOption = [...serviceChoice.options].find(option => option.value === requestedService);
+    if (matchingOption) {
+        serviceChoice.value = matchingOption.value;
+    }
+}
+
+if (contactForm) {
+    contactForm.addEventListener('submit', event => {
         event.preventDefault();
 
         const name = document.getElementById('customerName').value.trim();
@@ -95,34 +128,39 @@ const menuBtn = document.getElementById('menuBtn');
 
         window.open(whatsappURL, '_blank', 'noopener,noreferrer');
     });
+}
 
-    document.getElementById('year').textContent =
-        new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+}
 
-    const founderSection = document.getElementById('about');
+const founderSection = document.getElementById('about');
 
-    if (founderSection && 'IntersectionObserver' in window) {
-        founderSection.classList.add('reveal-pending');
+if (founderSection && 'IntersectionObserver' in window) {
+    founderSection.classList.add('reveal-pending');
 
-        const founderObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    founderSection.classList.remove('reveal-pending');
-                    founderSection.classList.add('is-revealed');
-                    founderObserver.unobserve(founderSection);
-                }
-            });
-        }, { threshold: 0.18 });
+    const founderObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                founderSection.classList.remove('reveal-pending');
+                founderSection.classList.add('is-revealed');
+                founderObserver.unobserve(founderSection);
+            }
+        });
+    }, { threshold: 0.18 });
 
-        founderObserver.observe(founderSection);
-    } else if (founderSection) {
-        founderSection.classList.add('is-revealed');
-    }
+    founderObserver.observe(founderSection);
+} else if (founderSection) {
+    founderSection.classList.add('is-revealed');
+}
 
-    const installButton = document.getElementById('installAppButton');
-    const installDialog = document.getElementById('installHelpDialog');
-    const installDialogDescription = document.getElementById('installHelpDescription');
-    const installDialogClose = document.getElementById('installHelpClose');
+const installButton = document.getElementById('installAppButton');
+const installDialog = document.getElementById('installHelpDialog');
+const installDialogDescription = document.getElementById('installHelpDescription');
+const installDialogClose = document.getElementById('installHelpClose');
+
+if (installButton) {
     const standaloneQuery = window.matchMedia('(display-mode: standalone)');
     const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -136,6 +174,10 @@ const menuBtn = document.getElementById('menuBtn');
     }
 
     function showInstallInstructions(iosInstructions) {
+        if (!installDialogDescription || !installDialog) {
+            return;
+        }
+
         installDialogDescription.replaceChildren();
 
         const intro = document.createElement('p');
@@ -178,7 +220,7 @@ const menuBtn = document.getElementById('menuBtn');
         hideInstallButton();
     }
 
-    if (supportsPwa && !installed && installButton) {
+    if (supportsPwa && !installed) {
         if (isIOS) {
             installButton.hidden = false;
         }
@@ -206,9 +248,13 @@ const menuBtn = document.getElementById('menuBtn');
         }
 
         installButton.addEventListener('click', async () => {
-            navMenu.classList.remove('open');
-            menuBtn.setAttribute('aria-expanded', 'false');
-            menuBtn.textContent = '☰';
+            if (navMenu) {
+                navMenu.classList.remove('open');
+            }
+            if (menuBtn) {
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.textContent = '☰';
+            }
 
             if (installed) {
                 hideInstallButton();
@@ -262,3 +308,4 @@ const menuBtn = document.getElementById('menuBtn');
                 console.error('Sigon service worker registration failed:', error);
             });
     }
+}

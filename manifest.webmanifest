@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Sigon Earn",
   "short_name": "Sigon",
-  "description": "Sigon Online Services — smart solutions and reliable digital assistance.",
+  "description": "SIGON ONLINE SERVICES — reliable digital assistance.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

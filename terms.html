@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Sigon Online Services</title>
+    <meta name="description" content="Read the full Terms and Conditions for Sigon Online Services in Kenya and download the PDF version.">
+    <meta name="theme-color" content="#07152f">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a class="logo" href="index.html">SIGON<span>.</span></a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="terms.html" class="active">Terms</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+            <button type="button" class="install-app-button" id="installAppButton" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 16a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/>
+                </svg>
+                <span>Install Sigon App</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="terms-intro-screen" id="termsIntroScreen" aria-live="polite">
+        <video class="terms-intro-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-desert-dunes-at-sunset-4027-large.mp4" type="video/mp4">
+        </video>
+        <div class="terms-intro-overlay"></div>
+
+        <div class="terms-intro-content">
+            <button type="button" class="back-button" id="backButton" aria-label="Go back">
+                <span class="back-arrow">‹</span>
+                <span>Back</span>
+            </button>
+
+            <p class="terms-kicker">WELCOME</p>
+            <h1>Welcome to Sigon Online Services</h1>
+            <p class="terms-intro-subtitle">Your trusted digital support partner — review our terms, policies, and service commitments.</p>
+        </div>
+    </div>
+
+    <section class="terms-page">
+        <div class="section-head terms-page-head">
+            <h2>Terms and Conditions</h2>
+            <p>Read the complete legal terms and service policies for Sigon Online Services.</p>
+        </div>
+
+        <div class="terms-shell">
+            <div class="terms-actions">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+                <button type="button" class="btn btn-primary" id="downloadTermsPdf">Download Terms &amp; Conditions (PDF)</button>
+            </div>
+
+            <div class="terms-quick-links" aria-label="Quick links to legal sections">
+                <a href="#introduction">Introduction</a>
+                <a href="#about-services">About Our Services</a>
+                <a href="#privacy-policy">Privacy Policy</a>
+                <a href="#refund-policy">Refund Policy</a>
+            </div>
+
+            <p class="terms-lead"><strong>Effective Date:</strong> 12 November 2026</p>
+
+            <div class="terms-intro" id="introduction">
+                <p>Welcome to Sigon Online Services. By accessing our website or using our services, you agree to comply with these Terms and Conditions. Please read them carefully before proceeding.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>1. Introduction and Acceptance of Terms</h3>
+                <p>These Terms and Conditions govern the use of Sigon Online Services and all related digital assistance services we provide to our customers. By using our website, placing an order, or requesting our services, you confirm that you have read, understood, and accepted these terms.</p>
+                <p>If you do not agree with any part of these Terms and Conditions, please do not use our website or services.</p>
+            </div>
+
+            <div class="terms-block" id="about-services">
+                <h3>2. About Sigon Online Services</h3>
+                <p>Sigon Online Services provides digital assistance and support, including:</p>
+                <ul>
+                    <li>Online applications and government service assistance.</li>
+                    <li>CV writing, editing and career support.</li>
+                    <li>Typing, document preparation and formatting.</li>
+                    <li>Printing, scanning and document services.</li>
+                    <li>Education-related online support.</li>
+                    <li>KRA and NTSA service assistance.</li>
+                    <li>Business registration and related digital services.</li>
+                </ul>
+                <p>We provide assistance to customers but are not a government agency or an official representative of any government institution.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>3. Services Offered</h3>
+                <p>Our services include online applications, digital support, document preparation, printing, scanning, document formatting, education-related assistance, business support, professional communication support, and digital service guidance. We aim to help clients complete their requests efficiently and accurately.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>4. Customer Responsibilities</h3>
+                <p>By using our services, you agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete information.</li>
+                    <li>Submit genuine and valid documents.</li>
+                    <li>Ensure that all information provided is correct before applications are submitted.</li>
+                    <li>Use our services for lawful purposes only.</li>
+                    <li>Avoid providing false information or engaging in fraudulent activities.</li>
+                </ul>
+                <p>Customers are responsible for the accuracy of the information they provide.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>5. Payments and Service Fees</h3>
+                <ul>
+                    <li>Customers must confirm the applicable service charges before making payments.</li>
+                    <li>Payments should only be made through officially communicated payment channels.</li>
+                    <li>Government fees and third-party charges may be separate from our service fees.</li>
+                    <li>Some services may require payment before work begins.</li>
+                    <li>Additional charges may apply where a customer requests changes outside the original agreement.</li>
+                </ul>
+            </div>
+
+            <div class="terms-block" id="refund-policy">
+                <h3>6. Refund and Cancellation Policy</h3>
+                <ul>
+                    <li>Payments for services already completed are generally non-refundable.</li>
+                    <li>If Sigon Online Services is unable to provide a service after payment, an appropriate refund may be considered.</li>
+                    <li>Government application fees and third-party charges are subject to the relevant institution's refund policies.</li>
+                    <li>Customers should contact us promptly if they experience a payment or service-related issue.</li>
+                </ul>
+                <p>We reserve the right to cancel or postpone services where required by operational, technical, or legal circumstances.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>7. Accuracy and Service Limitations</h3>
+                <p>Although we aim to provide reliable services, we cannot guarantee approval of government applications, job applications, registrations, permits or other third-party processes.</p>
+                <p>Final decisions are made by the relevant government institutions, employers or service providers.</p>
+                <p>We are not responsible for delays, system failures, rejections or changes caused by third-party platforms.</p>
+            </div>
+
+            <div class="terms-block" id="privacy-policy">
+                <h3>8. Privacy and Data Protection</h3>
+                <p>We respect the privacy of our customers.</p>
+                <ul>
+                    <li>Personal information is collected only where necessary to provide requested services.</li>
+                    <li>Customer information will not be intentionally shared with unauthorized parties.</li>
+                    <li>Information may be shared with relevant service providers or government platforms when necessary to complete a customer's request.</li>
+                    <li>We take reasonable steps to protect customer information against unauthorized access, loss or misuse.</li>
+                    <li>Customers should avoid sharing passwords or unnecessary sensitive information.</li>
+                </ul>
+                <p>Personal information is handled in accordance with applicable Kenyan data protection laws.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>9. Acceptable Website Usage</h3>
+                <p>Users agree not to:</p>
+                <ul>
+                    <li>Attempt to hack, damage or disrupt our website.</li>
+                    <li>Upload malicious software or harmful content.</li>
+                    <li>Use our website for illegal activities.</li>
+                    <li>Copy or misuse our website content, branding or materials without permission.</li>
+                </ul>
+                <p>We reserve the right to restrict access to users who violate these conditions.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>10. Third-Party Services</h3>
+                <p>Our website may contain links to external websites, including government portals and other service providers.</p>
+                <p>Sigon Online Services does not control these external platforms and is not responsible for their content, availability, policies or services.</p>
+                <p>Customers should review the terms and privacy policies of third-party platforms before using them.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>11. Service Availability</h3>
+                <p>We aim to keep our website and services accessible. However, temporary interruptions may occur due to maintenance, technical problems, internet connectivity or circumstances beyond our control.</p>
+                <p>We reserve the right to modify, suspend or discontinue any service when necessary.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>12. Limitation of Liability</h3>
+                <p>To the extent permitted by applicable law, Sigon Online Services shall not be liable for losses arising from inaccurate information supplied by customers, third-party platform failures, rejected applications or circumstances beyond our reasonable control.</p>
+                <p>Nothing in these terms excludes liability that cannot legally be excluded.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>13. Changes to These Terms</h3>
+                <p>Sigon Online Services reserves the right to update these Terms and Conditions when necessary.</p>
+                <p>Any changes will be published on this website. Continued use of our services after changes are published constitutes acceptance of the updated terms.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>14. Governing Law</h3>
+                <p>These Terms and Conditions shall be governed by the laws of the Republic of Kenya.</p>
+            </div>
+
+            <div class="terms-block">
+                <h3>15. Contact Information</h3>
+                <p>For questions, complaints or clarification regarding these Terms and Conditions, please contact us:</p>
+                <p><strong>Business Name:</strong> Sigon Online Services</p>
+                <p><strong>WhatsApp:</strong> +254 759 240 255</p>
+                <p><strong>Country:</strong> Kenya</p>
+                <p><strong>Tagline:</strong> Your Trusted Digital Support Partner.</p>
+            </div>
+
+            <div class="terms-signoff">
+                <p>© 2026 Sigon Online Services. All Rights Reserved.</p>
+                <p><em>Your Trusted Digital Support Partner.</em></p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© <span id="year"></span> <strong>Sigon Online Services</strong>. All rights reserved.</p>
+    <p>SIGON ONLINE SERVICES. Reliable Service.</p>
+    <p><a href="index.html">Home</a> | <a href="terms.html">Terms and Conditions</a> | <a href="terms.html#privacy-policy">Privacy Policy</a> | <a href="terms.html#refund-policy">Refund Policy</a> | <a href="reviews.html">Customer Reviews</a></p>
+    <p>Designed by Sigon Web Designer.</p>
+</footer>
+
+<script src="script.js" defer></script>
+<script>
+    const termsIntroScreen = document.getElementById('termsIntroScreen');
+    const backButton = document.getElementById('backButton');
+
+    if (backButton) {
+        backButton.addEventListener('click', () => {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
+    if (termsIntroScreen) {
+        setTimeout(() => {
+            termsIntroScreen.classList.add('is-hidden');
+        }, 10000);
+    }
+
+    window.downloadTermsPDF = function () {
+        const { jsPDF } = window.jspdf || {};
+
+        if (!jsPDF) {
+            alert('PDF generation is not available in this browser right now.');
+            return;
+        }
+
+        const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const margin = 48;
+        const maxWidth = pageWidth - margin * 2;
+
+        const sections = [
+            { title: '1. Introduction and Acceptance of Terms', body: 'These Terms and Conditions govern the use of Sigon Online Services and all related digital assistance services we provide to our customers. By using our website, placing an order, or requesting our services, you confirm that you have read, understood, and accepted these terms. If you do not agree with any part of these Terms and Conditions, please do not use our website or services.' },
+            { title: '2. About Sigon Online Services', body: 'Sigon Online Services provides digital assistance and support, including online applications and government service assistance, CV writing, editing and career support, typing, document preparation and formatting, printing, scanning and document services, education-related online support, KRA and NTSA service assistance, and business registration and related digital services. We provide assistance to customers but are not a government agency or an official representative of any government institution.' },
+            { title: '3. Services Offered', body: 'Our services include online applications, digital support, document preparation, printing, scanning, document formatting, education-related assistance, business support, professional communication support, and digital service guidance. We aim to help clients complete their requests efficiently and accurately.' },
+            { title: '4. Customer Responsibilities', body: 'By using our services, you agree to provide accurate and complete information, submit genuine and valid documents, ensure that all information provided is correct before applications are submitted, use our services for lawful purposes only, and avoid providing false information or engaging in fraudulent activities. Customers are responsible for the accuracy of the information they provide.' },
+            { title: '5. Payments and Service Fees', body: 'Customers must confirm the applicable service charges before making payments. Payments should only be made through officially communicated payment channels. Government fees and third-party charges may be separate from our service fees. Some services may require payment before work begins. Additional charges may apply where a customer requests changes outside the original agreement.' },
+            { title: '6. Refund and Cancellation Policy', body: 'Payments for services already completed are generally non-refundable. If Sigon Online Services is unable to provide a service after payment, an appropriate refund may be considered. Government application fees and third-party charges are subject to the relevant institution’s refund policies. Customers should contact us promptly if they experience a payment or service-related issue. We reserve the right to cancel or postpone services where required by operational, technical, or legal circumstances.' },
+            { title: '7. Accuracy and Service Limitations', body: 'Although we aim to provide reliable services, we cannot guarantee approval of government applications, job applications, registrations, permits or other third-party processes. Final decisions are made by the relevant government institutions, employers or service providers. We are not responsible for delays, system failures, rejections or changes caused by third-party platforms.' },
+            { title: '8. Privacy and Data Protection', body: 'We respect the privacy of our customers. Personal information is collected only where necessary to provide requested services. Customer information will not be intentionally shared with unauthorized parties. Information may be shared with relevant service providers or government platforms when necessary to complete a customer’s request. We take reasonable steps to protect customer information against unauthorized access, loss or misuse. Customers should avoid sharing passwords or unnecessary sensitive information. Personal information is handled in accordance with applicable Kenyan data protection laws.' },
+            { title: '9. Acceptable Website Usage', body: 'Users agree not to attempt to hack, damage or disrupt our website, upload malicious software or harmful content, use our website for illegal activities, or copy or misuse our website content, branding or materials without permission. We reserve the right to restrict access to users who violate these conditions.' },
+            { title: '10. Third-Party Services', body: 'Our website may contain links to external websites, including government portals and other service providers. Sigon Online Services does not control these external platforms and is not responsible for their content, availability, policies or services. Customers should review the terms and privacy policies of third-party platforms before using them.' },
+            { title: '11. Service Availability', body: 'We aim to keep our website and services accessible. However, temporary interruptions may occur due to maintenance, technical problems, internet connectivity or circumstances beyond our control. We reserve the right to modify, suspend or discontinue any service when necessary.' },
+            { title: '12. Limitation of Liability', body: 'To the extent permitted by applicable law, Sigon Online Services shall not be liable for losses arising from inaccurate information supplied by customers, third-party platform failures, rejected applications or circumstances beyond our reasonable control. Nothing in these terms excludes liability that cannot legally be excluded.' },
+            { title: '13. Changes to These Terms', body: 'Sigon Online Services reserves the right to update these Terms and Conditions when necessary. Any changes will be published on this website. Continued use of our services after changes are published constitutes acceptance of the updated terms.' },
+            { title: '14. Governing Law', body: 'These Terms and Conditions shall be governed by the laws of the Republic of Kenya.' },
+            { title: '15. Contact Information', body: 'For questions, complaints or clarification regarding these Terms and Conditions, please contact Sigon Online Services via WhatsApp at +254 759 240 255. Business Name: Sigon Online Services. Country: Kenya. Tagline: Your Trusted Digital Support Partner.' }
+        ];
+
+        const addFooter = () => {
+            const pageNum = doc.internal.getCurrentPageInfo().pageNumber;
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9);
+            doc.setTextColor(100, 100, 100);
+            doc.text('Page ' + pageNum, pageWidth - margin, pageHeight - 18, { align: 'right' });
+        };
+
+        const addHeader = () => {
+            doc.setDrawColor(34, 211, 238);
+            doc.setFillColor(7, 21, 47);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(22);
+            doc.setTextColor(7, 21, 47);
+            doc.text('Sigon Online Services', margin, 54);
+
+            doc.setFontSize(13);
+            doc.setTextColor(22, 119, 255);
+            doc.text('Terms and Conditions', margin, 78);
+            doc.line(margin, 90, pageWidth - margin, 90);
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9.5);
+            doc.setTextColor(80, 88, 96);
+            doc.text('Effective Date: 12 November 2026', margin, 108);
+            doc.text('Business Name: Sigon Online Services | WhatsApp: +254 759 240 255 | Country: Kenya', margin, 122);
+        };
+
+        const addPageContent = (index) => {
+            const section = sections[index];
+            if (!section) return;
+
+            let y = 150;
+
+            if (doc.internal.getCurrentPageInfo().pageNumber > 1) {
+                y = 60;
+            }
+
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12.5);
+            doc.setTextColor(7, 21, 47);
+            const titleLines = doc.splitTextToSize(section.title, maxWidth);
+            doc.text(titleLines, margin, y);
+            y += titleLines.length * 16 + 10;
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(10.5);
+            doc.setTextColor(51, 65, 85);
+            const bodyLines = doc.splitTextToSize(section.body, maxWidth);
+            doc.text(bodyLines, margin, y, { maxWidth });
+            y += bodyLines.length * 14 + 18;
+
+            if (y > pageHeight - 80) {
+                doc.addPage();
+                addHeader();
+                addFooter();
+                return addPageContent(index);
+            }
+        };
+
+        addHeader();
+        let lastPageWasCreated = false;
+
+        for (let i = 0; i < sections.length; i += 1) {
+            const section = sections[i];
+            const yPosition = i === 0 ? 150 : null;
+            let currentY = yPosition || 150;
+            const titleLines = doc.splitTextToSize(section.title, maxWidth);
+            const bodyLines = doc.splitTextToSize(section.body, maxWidth);
+
+            const neededHeight = (titleLines.length * 16) + (bodyLines.length * 14) + 30;
+
+            if (currentY + neededHeight > pageHeight - 54) {
+                doc.addPage();
+                addHeader();
+                lastPageWasCreated = true;
+                currentY = 150;
+            }
+
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12.5);
+            doc.setTextColor(7, 21, 47);
+            doc.text(titleLines, margin, currentY);
+            currentY += titleLines.length * 16 + 10;
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(10.5);
+            doc.setTextColor(51, 65, 85);
+            doc.text(bodyLines, margin, currentY, { maxWidth });
+            currentY += bodyLines.length * 14 + 18;
+
+            if (i < sections.length - 1 && currentY > pageHeight - 70) {
+                doc.addPage();
+                addHeader();
+                lastPageWasCreated = true;
+            }
+
+            addFooter();
+        }
+
+        const pdfName = 'Sigon-Online-Services-Terms-and-Conditions.pdf';
+        doc.save(pdfName);
+    };
+
+    const downloadButton = document.getElementById('downloadTermsPdf');
+    if (downloadButton) {
+        downloadButton.addEventListener('click', window.downloadTermsPDF);
+    }
+</script>
+</body>
+</html>

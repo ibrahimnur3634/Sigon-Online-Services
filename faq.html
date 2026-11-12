@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | SIGON ONLINE SERVICES</title>
+    <meta name="description" content="Find answers to common questions about Sigon Online Services, digital assistance, pricing, payments and support.">
+    <meta name="theme-color" content="#07152f">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="faq-page">
+<header>
+    <div class="navbar">
+        <a class="logo" href="index.html#home">SIGON<span>.</span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <nav id="navMenu" class="nav-links" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="faq.html" aria-current="page">FAQ</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact</a>
+            <div class="nav-actions">
+                <button type="button" class="install-app-button" id="installAppButton" hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 16a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/></svg>
+                    <span>Install Sigon App</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero faq-hero" aria-labelledby="faqTitle">
+        <div class="hero-content">
+            <span class="tag">SIGON ONLINE SERVICES</span>
+            <h1 id="faqTitle">FREQUENTLY ASKED QUESTIONS</h1>
+            <p class="faq-hero-subtitle">Find answers to common questions about our digital services.</p>
+        </div>
+    </section>
+
+    <section class="faq-content" aria-labelledby="faqBrowseTitle">
+        <div class="faq-content-head">
+            <div>
+                <span class="faq-eyebrow">HELP &amp; INFORMATION</span>
+                <h2 id="faqBrowseTitle">How can we help?</h2>
+            </div>
+            <label class="faq-search">
+                <span class="faq-search-icon" aria-hidden="true">⌕</span>
+                <span class="faq-visually-hidden">Search questions and answers</span>
+                <input id="faqSearch" type="search" placeholder="Search questions..." autocomplete="off">
+                <button id="faqClearSearch" type="button" aria-label="Clear search" title="Clear search" hidden>×</button>
+            </label>
+        </div>
+
+        <div class="faq-filters" id="faqFilters" role="group" aria-label="Filter FAQs by category"></div>
+        <p class="faq-results" id="faqResults" role="status" aria-live="polite"></p>
+        <div class="faq-list" id="faqList"></div>
+    </section>
+
+    <section class="faq-contact" aria-labelledby="faqContactTitle">
+        <div class="faq-contact-inner">
+            <div>
+                <span class="faq-eyebrow">PERSONAL ASSISTANCE</span>
+                <h2 id="faqContactTitle">Still have questions? We are here to help.</h2>
+                <p>Send us a message and tell us what you would like to know.</p>
+            </div>
+            <a class="btn btn-primary faq-whatsapp-button" href="https://wa.me/254759240255?text=Hello%20Sigon%20Online%20Services%2C%20I%20have%20a%20question%20about%20your%20services." target="_blank" rel="noopener noreferrer">Ask us on WhatsApp</a>
+        </div>
+        <div class="faq-related-links" aria-label="Related pages">
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© <span id="year"></span> <strong>Sigon Online Services</strong>. All rights reserved.</p>
+    <p>SIGON ONLINE SERVICES. Reliable Service.</p>
+    <p><a href="terms.html">Terms and Conditions</a> | <a href="terms.html#privacy-policy">Privacy Policy</a> | <a href="terms.html#refund-policy">Refund Policy</a> | <a href="reviews.html">Customer Reviews</a></p>
+    <p><strong>Designed &amp; Developed by SIGON | Sigon Web Designer</strong></p>
+    <p><em>Think Creative. Go Digital.</em></p>
+</footer>
+
+<dialog class="install-help-dialog" id="installHelpDialog" aria-labelledby="installHelpTitle" aria-describedby="installHelpDescription">
+    <div class="install-help-content">
+        <button type="button" class="install-help-close" id="installHelpClose" aria-label="Close installation instructions">×</button>
+        <span class="install-help-icon" aria-hidden="true">↓</span>
+        <h2 id="installHelpTitle">Install Sigon Earn</h2>
+        <div id="installHelpDescription"></div>
+    </div>
+</dialog>
+
+<script src="script.js" defer></script>
+<script src="faq.js" defer></script>
+</body>
+</html>
