@@ -1,5 +1,6 @@
-const CACHE_NAME = 'sigon-earn-shell-v1';
+const CACHE_NAME = 'sigon-earn-shell-v2';
 const ASSETS_TO_CACHE = [
+    './index.html',
     './style.css',
     './script.js',
     './pricing.html',
@@ -12,6 +13,8 @@ const ASSETS_TO_CACHE = [
     './contact.html',
     './reviews.html',
     './reviews.js',
+    './terms.html',
+    './manifest.json',
     './manifest.webmanifest',
     './offline.html',
     './assets/icon-192.png',
@@ -22,11 +25,13 @@ const SCOPE_URL = self.registration.scope;
 const HOME_URL = new URL('./index.html', SCOPE_URL).href;
 const HOME_ROOT_URL = new URL('./', SCOPE_URL).href;
 const HOW_IT_WORKS_URL = new URL('./how-it-works.html', SCOPE_URL).href;
+const PRICING_URL = new URL('./pricing.html', SCOPE_URL).href;
 const FAQ_URL = new URL('./faq.html', SCOPE_URL).href;
 const SERVICES_URL = new URL('./services.html', SCOPE_URL).href;
 const ABOUT_URL = new URL('./about.html', SCOPE_URL).href;
 const CONTACT_URL = new URL('./contact.html', SCOPE_URL).href;
 const REVIEWS_URL = new URL('./reviews.html', SCOPE_URL).href;
+const TERMS_URL = new URL('./terms.html', SCOPE_URL).href;
 const OFFLINE_URL = new URL('./offline.html', SCOPE_URL).href;
 const PUBLIC_ASSETS = new Map(
     ASSETS_TO_CACHE.map(asset => {
@@ -96,6 +101,13 @@ self.addEventListener('fetch', event => {
                     }
                 }
 
+                if (url.href === PRICING_URL) {
+                    const pricingPage = await cache.match(PRICING_URL);
+                    if (pricingPage) {
+                        return pricingPage;
+                    }
+                }
+
                 if (url.href === FAQ_URL) {
                     const faqPage = await cache.match(FAQ_URL);
                     if (faqPage) {
@@ -103,7 +115,13 @@ self.addEventListener('fetch', event => {
                     }
                 }
 
-                for (const pageUrl of [SERVICES_URL, ABOUT_URL, CONTACT_URL, REVIEWS_URL]) {
+                for (const pageUrl of [
+                    SERVICES_URL,
+                    ABOUT_URL,
+                    CONTACT_URL,
+                    REVIEWS_URL,
+                    TERMS_URL
+                ]) {
                     if (url.href === pageUrl) {
                         const cachedPage = await cache.match(pageUrl);
                         if (cachedPage) {

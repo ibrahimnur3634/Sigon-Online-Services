@@ -9,7 +9,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
     <link rel="apple-touch-icon" href="assets/icon-192.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +22,13 @@
     <div class="navbar">
         <a class="logo" href="index.html#home">SIGON<span>.</span></a>
         <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-        <nav id="navMenu" class="nav-links" aria-label="Main navigation">
-            <a href="index.html">Home</a>
+        <nav id="navMenu" class="nav-links" aria-label="Main navigation"><div class="nav-actions">
+                <button type="button" class="install-app-button" id="installAppButton" hidden>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 16a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/></svg>
+                    <span>Install Sigon App</span>
+                </button>
+            </div>
+<a href="index.html">Home</a>
             <a href="services.html">Services</a>
             <a href="about.html">About Us</a>
             <a href="how-it-works.html">How It Works</a>
@@ -31,13 +36,7 @@
             <a href="faq.html">FAQ</a>
             <a href="terms.html">Terms</a>
             <a href="contact.html">Contact</a>
-            <div class="nav-actions">
-                <button type="button" class="install-app-button" id="installAppButton" hidden>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 16a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/></svg>
-                    <span>Install Sigon App</span>
-                </button>
-            </div>
-        </nav>
+</nav>
     </div>
 </header>
 
@@ -142,7 +141,7 @@
     <div class="install-help-content">
         <button type="button" class="install-help-close" id="installHelpClose" aria-label="Close installation instructions">×</button>
         <span class="install-help-icon" aria-hidden="true">↓</span>
-        <h2 id="installHelpTitle">Install Sigon Earn</h2>
+        <h2 id="installHelpTitle">Install Sigon Online Services</h2>
         <div id="installHelpDescription"></div>
     </div>
 </dialog>

@@ -1,14 +1,17 @@
 {
   "id": "./",
-  "name": "Sigon Earn",
+  "name": "Sigon Online Services",
   "short_name": "Sigon",
-  "description": "SIGON ONLINE SERVICES — reliable digital assistance.",
+  "description": "Reliable digital assistance, document support, registration help, and business support services in Kenya.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait",
   "theme_color": "#07152f",
   "background_color": "#07152f",
+  "lang": "en",
+  "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
       "src": "./assets/icon-192.png",

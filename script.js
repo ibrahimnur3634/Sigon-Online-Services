@@ -162,12 +162,20 @@ const installDialogClose = document.getElementById('installHelpClose');
 
 if (installButton) {
     const standaloneQuery = window.matchMedia('(display-mode: standalone)');
+    const navbar = installButton.closest('.navbar');
+    const navActions = installButton.closest('.nav-actions');
     const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     const supportsPwa = window.isSecureContext &&
         'serviceWorker' in navigator;
     let deferredInstallPrompt = null;
     let installed = standaloneQuery.matches || navigator.standalone === true;
+
+    if (navbar && navActions && menuBtn) {
+        navbar.insertBefore(navActions, menuBtn);
+    }
+
+    installButton.querySelector('span').textContent = 'Install App';
 
     function hideInstallButton() {
         installButton.hidden = true;
@@ -185,18 +193,18 @@ if (installButton) {
         const instructions = iosInstructions
             ? [
                 'Tap the Share button in Safari.',
-                'Scroll down and choose “Add to Home Screen”.',
-                'Tap “Add” to confirm and install Sigon Earn.'
+                'Choose “Add to Home Screen” from the Share menu.',
+                'Tap “Add” to install Sigon Online Services.'
             ]
             : [
                 'Open your browser menu for this site.',
                 'Choose “Install app” or “Add to Home screen”.',
-                'Confirm to add Sigon Earn to your device.'
+                'Confirm to add Sigon Online Services to your device.'
             ];
 
         intro.textContent = iosInstructions
-            ? 'Add Sigon Earn to your iPhone or iPad Home Screen:'
-            : 'Install Sigon Earn from your browser menu:';
+            ? 'Install Sigon Online Services on your iPhone or iPad:'
+            : 'Install Sigon Online Services from your browser menu:';
         installDialogDescription.appendChild(intro);
 
         instructions.forEach(instruction => {
@@ -220,70 +228,66 @@ if (installButton) {
         hideInstallButton();
     }
 
-    if (supportsPwa && !installed) {
-        if (isIOS) {
-            installButton.hidden = false;
+    if (installed) {
+        hideInstallButton();
+    } else {
+        installButton.hidden = false;
+    }
+
+    window.addEventListener('beforeinstallprompt', event => {
+        event.preventDefault();
+        if (installed) {
+            return;
+        }
+        deferredInstallPrompt = event;
+        installButton.hidden = false;
+    });
+
+    window.addEventListener('appinstalled', markAppInstalled);
+
+    const handleDisplayModeChange = event => {
+        if (event.matches) {
+            markAppInstalled();
+        }
+    };
+
+    if (typeof standaloneQuery.addEventListener === 'function') {
+        standaloneQuery.addEventListener('change', handleDisplayModeChange);
+    } else if (typeof standaloneQuery.addListener === 'function') {
+        standaloneQuery.addListener(handleDisplayModeChange);
+    }
+
+    installButton.addEventListener('click', async () => {
+        if (navMenu) {
+            navMenu.classList.remove('open');
+        }
+        if (menuBtn) {
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.textContent = '☰';
         }
 
-        window.addEventListener('beforeinstallprompt', event => {
-            event.preventDefault();
-            deferredInstallPrompt = event;
-            if (!installed) {
-                installButton.hidden = false;
-            }
-        });
-
-        window.addEventListener('appinstalled', markAppInstalled);
-
-        const handleDisplayModeChange = event => {
-            if (event.matches) {
-                markAppInstalled();
-            }
-        };
-
-        if (typeof standaloneQuery.addEventListener === 'function') {
-            standaloneQuery.addEventListener('change', handleDisplayModeChange);
-        } else if (typeof standaloneQuery.addListener === 'function') {
-            standaloneQuery.addListener(handleDisplayModeChange);
+        if (installed) {
+            hideInstallButton();
+            return;
         }
 
-        installButton.addEventListener('click', async () => {
-            if (navMenu) {
-                navMenu.classList.remove('open');
-            }
-            if (menuBtn) {
-                menuBtn.setAttribute('aria-expanded', 'false');
-                menuBtn.textContent = '☰';
-            }
+        if (!deferredInstallPrompt) {
+            showInstallInstructions(isIOS);
+            return;
+        }
 
-            if (installed) {
-                hideInstallButton();
-                return;
-            }
-
-            if (isIOS && !deferredInstallPrompt) {
-                showInstallInstructions(true);
-                return;
-            }
-
-            if (!deferredInstallPrompt) {
-                showInstallInstructions(false);
-                return;
-            }
-
-            const installPrompt = deferredInstallPrompt;
-            deferredInstallPrompt = null;
+        const installPrompt = deferredInstallPrompt;
+        deferredInstallPrompt = null;
+        try {
             await installPrompt.prompt();
             const choice = await installPrompt.userChoice;
-
             if (choice.outcome === 'accepted') {
                 markAppInstalled();
-            } else if (!installed) {
-                installButton.querySelector('span').textContent =
-                    'Install from browser menu';
             }
-        });
-    }
+        } catch (error) {
+            console.error('Sigon app installation prompt failed:', error);
+        }
+    });
 
     if (installDialog && installDialogClose) {
         installDialogClose.addEventListener('click', () => {
