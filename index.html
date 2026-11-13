@@ -28,19 +28,21 @@
     <div class="navbar">
         <a class="logo" href="index.html">SIGON<span>.</span></a>
 
+        <div class="nav-actions">
+            <button type="button" class="install-app-button" id="installAppButton" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 16a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/>
+                </svg>
+                <span>Install App</span>
+            </button>
+        </div>
+
         <button class="menu-btn" id="menuBtn"
                 aria-label="Toggle navigation"
                 aria-expanded="false">☰</button>
 
-        <nav id="navMenu" class="nav-links"><div class="nav-actions">
-                <button type="button" class="install-app-button" id="installAppButton" hidden>
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 16a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/>
-                    </svg>
-                    <span>Install Sigon App</span>
-                </button>
-            </div>
-<a href="index.html" aria-current="page">Home</a>
+        <nav id="navMenu" class="nav-links" aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Home</a>
             <a href="services.html">Services</a>
             <a href="about.html">About Us</a>
             <a href="how-it-works.html">How It Works</a>
@@ -48,7 +50,7 @@
             <a href="faq.html">FAQ</a>
             <a href="terms.html">Terms</a>
             <a href="contact.html">Contact</a>
-</nav>
+        </nav>
     </div>
 </header>
 
@@ -61,9 +63,8 @@
                 <span>Reliable Service.</span></h1>
 
             <p>
-                Welcome to Sigon Online Services — your trusted partner
-                for online applications, digital support, document services
-                and professional assistance. We make your digital tasks easier.
+                Welcome to Sigon Online Services, your trusted partner for
+                online applications, document services and professional digital support.
             </p>
 
             <div class="buttons">
@@ -82,17 +83,68 @@
             <div class="stats">
                 <div class="stat">
                     <strong>Reliable</strong>
-                    <span>Digital assistance</span>
+                    <span>Digital help</span>
                 </div>
                 <div class="stat">
                     <strong>Affordable</strong>
-                    <span>Customer-friendly service</span>
+                    <span>Fair pricing</span>
                 </div>
                 <div class="stat">
                     <strong>Convenient</strong>
-                    <span>Online support</span>
+                    <span>Easy online support</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="services home-services" id="services" aria-labelledby="homeServicesTitle">
+        <div class="section-head">
+            <span class="services-eyebrow">HOW WE CAN HELP</span>
+            <h2 id="homeServicesTitle">Digital support for everyday tasks</h2>
+            <p>Choose a service to get started, or explore the full range of Sigon support.</p>
+        </div>
+
+        <div class="service-grid">
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🖥️</div>
+                <h3>Online Applications</h3>
+                <p>Get help with eCitizen, passport, good conduct and other online applications.</p>
+                <a href="contact.html?service=Online%20Applications" data-service="Online Applications">Request service →</a>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">📄</div>
+                <h3>CV &amp; Career Support</h3>
+                <p>Prepare professional CVs, cover letters and job application documents.</p>
+                <a href="contact.html?service=CV%20and%20Career%20Services" data-service="CV and Career Services">Request service →</a>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">⌨️</div>
+                <h3>Typing &amp; Documents</h3>
+                <p>Get support with typing, editing, document formatting, scanning and printing.</p>
+                <a href="contact.html?service=Typing%20and%20Documents" data-service="Typing and Documents">Request service →</a>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🎓</div>
+                <h3>Education Support</h3>
+                <p>Get guidance with HELB, KUCCPS, student forms, bursaries and scholarships.</p>
+                <a href="contact.html?service=Education%20Support" data-service="Education Support">Request service →</a>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">💼</div>
+                <h3>Business Services</h3>
+                <p>Support for business registration, business plans, branding and digital design.</p>
+                <a href="contact.html?service=Business%20Services" data-service="Business Services">Request service →</a>
+            </article>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">📊</div>
+                <h3>KRA &amp; NTSA Support</h3>
+                <p>Get assistance with KRA PINs, returns, TCC and available NTSA services.</p>
+                <a href="contact.html?service=KRA%20and%20NTSA%20Support" data-service="KRA and NTSA Support">Request service →</a>
+            </article>
+        </div>
+
+        <div class="home-services-action">
+            <a href="services.html" class="btn btn-primary">View all services</a>
         </div>
     </section>
 
