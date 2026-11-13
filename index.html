@@ -24,6 +24,31 @@
 
 <body>
 
+<div class="welcome-intro" id="welcomeIntro" aria-hidden="true">
+    <div class="intro-grid" aria-hidden="true"></div>
+    <div class="intro-beam intro-beam-one" aria-hidden="true"></div>
+    <div class="intro-beam intro-beam-two" aria-hidden="true"></div>
+    <div class="intro-particles" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="intro-content">
+        <div class="intro-orbit" aria-hidden="true"></div>
+        <p class="intro-logo">SIGON<span>.</span></p>
+        <p class="intro-title">Reliable Service.</p>
+        <p class="intro-subtitle">Your digital partner in Kenya</p>
+    </div>
+    <div class="intro-loader">
+        <p>Opening Sigon Online Services</p>
+        <div class="intro-progress" id="introProgress" role="progressbar"
+             aria-label="Opening Sigon Online Services" aria-valuemin="0"
+             aria-valuemax="100" aria-valuenow="0">
+            <span id="introProgressFill"></span>
+        </div>
+        <span class="intro-percent" id="introPercent">0%</span>
+    </div>
+</div>
+
 <header>
     <div class="navbar">
         <a class="logo" href="index.html">SIGON<span>.</span></a>
@@ -106,39 +131,51 @@
 
         <div class="service-grid">
             <article class="service-card">
-                <div class="service-icon" aria-hidden="true">🖥️</div>
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4M7 8h10m-10 3h7"/></svg>
+                </div>
                 <h3>Online Applications</h3>
-                <p>Get help with eCitizen, passport, good conduct and other online applications.</p>
+                <p>Assistance with eCitizen, good conduct applications, passport applications and other online government services.</p>
                 <a href="contact.html?service=Online%20Applications" data-service="Online Applications">Request service →</a>
             </article>
             <article class="service-card">
-                <div class="service-icon" aria-hidden="true">📄</div>
-                <h3>CV &amp; Career Support</h3>
-                <p>Prepare professional CVs, cover letters and job application documents.</p>
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5M9 13h7m-7 4h7"/></svg>
+                </div>
+                <h3>CV &amp; Career Services</h3>
+                <p>CV writing, professional formatting, cover letters, job applications and document preparation.</p>
                 <a href="contact.html?service=CV%20and%20Career%20Services" data-service="CV and Career Services">Request service →</a>
             </article>
             <article class="service-card">
-                <div class="service-icon" aria-hidden="true">⌨️</div>
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h.01M10 9h.01M13 9h.01M16 9h.01M7 12h.01M10 12h.01M13 12h.01M16 12h.01M8 15h8"/></svg>
+                </div>
                 <h3>Typing &amp; Documents</h3>
-                <p>Get support with typing, editing, document formatting, scanning and printing.</p>
+                <p>Typing, editing, PDF conversion, document formatting, scanning, printing and photocopying.</p>
                 <a href="contact.html?service=Typing%20and%20Documents" data-service="Typing and Documents">Request service →</a>
             </article>
             <article class="service-card">
-                <div class="service-icon" aria-hidden="true">🎓</div>
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v6"/></svg>
+                </div>
                 <h3>Education Support</h3>
-                <p>Get guidance with HELB, KUCCPS, student forms, bursaries and scholarships.</p>
+                <p>Assistance with HELB, KUCCPS, university applications, bursaries, scholarships and online student forms.</p>
                 <a href="contact.html?service=Education%20Support" data-service="Education Support">Request service →</a>
             </article>
             <article class="service-card">
-                <div class="service-icon" aria-hidden="true">💼</div>
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m-13 5h18m-11 0v2h4v-2"/></svg>
+                </div>
                 <h3>Business Services</h3>
-                <p>Support for business registration, business plans, branding and digital design.</p>
+                <p>Business registration assistance, business plans, logos, business cards and digital branding.</p>
                 <a href="contact.html?service=Business%20Services" data-service="Business Services">Request service →</a>
             </article>
             <article class="service-card">
-                <div class="service-icon" aria-hidden="true">📊</div>
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 20V10m5 10V4m5 16v-7m5 7V7M2 20h20"/></svg>
+                </div>
                 <h3>KRA &amp; NTSA Support</h3>
-                <p>Get assistance with KRA PINs, returns, TCC and available NTSA services.</p>
+                <p>Assistance with KRA PIN and returns, TCC, and available NTSA online services.</p>
                 <a href="contact.html?service=KRA%20and%20NTSA%20Support" data-service="KRA and NTSA Support">Request service →</a>
             </article>
         </div>

@@ -2,61 +2,70 @@ const welcomeIntro = document.getElementById('welcomeIntro');
 const introProgress = document.getElementById('introProgress');
 const introProgressFill = document.getElementById('introProgressFill');
 const introPercent = document.getElementById('introPercent');
-const introDuration = 3000;
-const introFadeDuration = 400;
-const introStartedAt = window.sigonIntroStart || performance.now();
 
 if (welcomeIntro) {
-    document.body.classList.add('intro-active');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let introSeen = false;
 
-    function finishWelcomeIntro() {
-        if (!introProgressFill || !introProgress || !introPercent || !welcomeIntro) {
-            return;
-        }
+    try {
+        introSeen = localStorage.getItem('sigon-intro-seen') === 'true';
+    } catch (error) {
+        console.warn('The welcome intro preference could not be read.', error);
+    }
 
-        introProgressFill.style.width = '100%';
-        introProgress.setAttribute('aria-valuenow', '100');
-        introPercent.textContent = '100%';
-        welcomeIntro.classList.add('is-leaving');
+    if (reducedMotion || introSeen) {
         welcomeIntro.hidden = true;
-        welcomeIntro.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('intro-active');
-        document.documentElement.classList.remove('intro-enabled');
-    }
+    } else {
+        const introDuration = 1200;
+        const introFadeDuration = 300;
+        const introStartedAt = performance.now();
 
-    function updateWelcomeIntro(now) {
-        if (!introProgressFill || !introProgress || !introPercent) {
-            return;
+        try {
+            localStorage.setItem('sigon-intro-seen', 'true');
+        } catch (error) {
+            console.warn('The welcome intro preference could not be saved.', error);
         }
 
-        const elapsed = Math.max(0, Math.min(now - introStartedAt, introDuration));
-        const progress = Math.round((elapsed / introDuration) * 100);
+        document.documentElement.classList.add('intro-enabled');
+        document.body.classList.add('intro-active');
+        welcomeIntro.setAttribute('aria-hidden', 'false');
 
-        introProgressFill.style.width = `${progress}%`;
-        introProgress.setAttribute('aria-valuenow', String(progress));
-        introPercent.textContent = `${progress}%`;
+        function finishWelcomeIntro() {
+            if (introProgressFill && introProgress && introPercent) {
+                introProgressFill.style.width = '100%';
+                introProgress.setAttribute('aria-valuenow', '100');
+                introPercent.textContent = '100%';
+            }
 
-        if (elapsed < introDuration) {
-            requestAnimationFrame(updateWelcomeIntro);
-        }
-    }
-
-    const timeUntilFade = Math.max(
-        0,
-        introDuration - introFadeDuration - (performance.now() - introStartedAt)
-    );
-    const timeUntilFinish = Math.max(
-        0,
-        introDuration - (performance.now() - introStartedAt)
-    );
-
-    window.setTimeout(() => {
-        if (welcomeIntro) {
             welcomeIntro.classList.add('is-leaving');
+            welcomeIntro.hidden = true;
+            welcomeIntro.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('intro-active');
+            document.documentElement.classList.remove('intro-enabled');
         }
-    }, timeUntilFade);
-    window.setTimeout(finishWelcomeIntro, timeUntilFinish);
-    requestAnimationFrame(updateWelcomeIntro);
+
+        function updateWelcomeIntro(now) {
+            if (!introProgressFill || !introProgress || !introPercent) {
+                return;
+            }
+
+            const elapsed = Math.max(0, Math.min(now - introStartedAt, introDuration));
+            const progress = Math.round((elapsed / introDuration) * 100);
+
+            introProgressFill.style.width = `${progress}%`;
+            introProgress.setAttribute('aria-valuenow', String(progress));
+            introPercent.textContent = `${progress}%`;
+
+            if (elapsed < introDuration) {
+                requestAnimationFrame(updateWelcomeIntro);
+            }
+        }
+
+        window.setTimeout(() => welcomeIntro.classList.add('is-leaving'),
+            introDuration - introFadeDuration);
+        window.setTimeout(finishWelcomeIntro, introDuration);
+        requestAnimationFrame(updateWelcomeIntro);
+    }
 }
 
 const menuBtn = document.getElementById('menuBtn');

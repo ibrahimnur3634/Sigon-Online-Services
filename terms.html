@@ -27,7 +27,7 @@
                 aria-label="Toggle navigation"
                 aria-expanded="false">☰</button>
 
-        <nav id="navMenu"><div class="nav-actions">
+        <nav id="navMenu" class="nav-links" aria-label="Main navigation"><div class="nav-actions">
                 <button type="button" class="install-app-button" id="installAppButton" hidden>
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 16a1 1 0 0 1 1 1v2h12v-2a1 1 0 1 1 2 0v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/>
@@ -49,9 +49,9 @@
 
 <main>
     <div class="terms-intro-screen" id="termsIntroScreen" aria-live="polite">
-        <video class="terms-intro-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-desert-dunes-at-sunset-4027-large.mp4" type="video/mp4">
-        </video>
+        <img class="terms-intro-image"
+             src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
+             alt="" aria-hidden="true" fetchpriority="high">
         <div class="terms-intro-overlay"></div>
 
         <div class="terms-intro-content">
